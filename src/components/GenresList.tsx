@@ -3,10 +3,11 @@ import useGenres, { Genre } from "../hooks/useGenres";
 import { imageOptimizer } from "../services/imageOptimizer";
 
 interface Props {
+  selectedGenre: Genre | null, 
   onSelectGenre: (genre: Genre) => void, 
 }
 
-const GenresList = ({ onSelectGenre }: Props) => {
+const GenresList = ({ selectedGenre, onSelectGenre }: Props) => {
   const { data: genres, error } = useGenres();  //rename data to genres
 
   if (error) return null;
@@ -22,7 +23,7 @@ const GenresList = ({ onSelectGenre }: Props) => {
             src={imageOptimizer(genre.image_background)}
             boxSize="32px"
           />
-          <Link onClick={() => onSelectGenre(genre)} fontSize='lg' key={genre.id}>{genre.name}</Link>
+          <Link as={genre.id === selectedGenre?.id ? 'b' : 'a'} onClick={() => onSelectGenre(genre)} fontSize='lg' key={genre.id}>{genre.name}</Link>
         </HStack>
       ))}
     </List>
