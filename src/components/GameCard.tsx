@@ -2,7 +2,7 @@ import { Game } from "../hooks/useGames";
 import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
 import PlatformIconList from "./PlatformIconList"; //importing an object will import its dependence libraries too
 import CriticScoreTag from "./CriticScoreTag";
-import { imageOptimizer } from "../services/image-optimizer";
+import { imageOptimizer } from "../services/imageOptimizer";
 
 interface Props {
   game: Game;
