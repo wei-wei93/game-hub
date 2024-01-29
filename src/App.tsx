@@ -51,7 +51,11 @@ function App() {
               setGameQueryConfig({ ...gameQueryConfig, platform })
             }
           />
-          <SortSelector onSelectOrdering={(ordering) => setGameQueryConfig({...gameQueryConfig, ordering})}/>
+          <SortSelector
+            onSelectOrdering={(ordering) =>
+              setGameQueryConfig({ ...gameQueryConfig, ordering })
+            }
+          />
         </HStack>
         <GameGrid gameQueryConfig={gameQueryConfig} />
       </GridItem>

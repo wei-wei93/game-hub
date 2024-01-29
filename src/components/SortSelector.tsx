@@ -10,7 +10,7 @@ const SortSelector = ({ onSelectOrdering }: Props) => {
     "name",
     "released",
     "added",
-    "created",
+    "-created",
     "updated",
     "rating",
     "-metacritic",
