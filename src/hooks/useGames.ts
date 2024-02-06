@@ -3,7 +3,7 @@ import { GameQueryConfig } from "../App";
 import useData from "./useData";
 
 export interface Platform {
-  id: number;
+  id: number | null;
   name: string;
   slug: string;
 }
@@ -22,8 +22,8 @@ const useGames = (gameQueryConfig: GameQueryConfig) =>
     {
       params: {
         genres: gameQueryConfig.genre?.id,
-        platforms: gameQueryConfig.platform?.id,
-        ordering: gameQueryConfig.ordering,
+        parent_platforms: gameQueryConfig.parent_platform?.id,
+        ordering: gameQueryConfig.sortOrder?.value,
       },
     },
     [gameQueryConfig]

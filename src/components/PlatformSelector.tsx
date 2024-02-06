@@ -5,11 +5,17 @@ import { BiDownArrow } from "react-icons/bi";
 
 interface Props {
   selectedPlatform: Platform | null, 
-  onSelectPlatform: (platform: Platform) => void, 
+  onSelectPlatform: (parent_platform: Platform) => void, 
 }
 
 const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
-  const { data: platforms, error } = usePlatforms();
+  const { data: parent_platforms, error } = usePlatforms();
+
+  const allPlatformsOption = {
+    id: null, 
+    name: 'Platform', 
+    slug: '', 
+  }
 
   if (error) return null;
 
@@ -19,12 +25,13 @@ const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
         {selectedPlatform ? selectedPlatform.name : "Platform"}
       </MenuButton>
       <MenuList>
-        {platforms.map((platform) => (
+        <MenuItem onClick={() => onSelectPlatform(allPlatformsOption)} key={allPlatformsOption.name}>Platform</MenuItem>
+        {parent_platforms.map((parent_platform) => (
           <MenuItem
-            onClick={() => onSelectPlatform(platform)}
-            key={platform.id}
+            onClick={() => onSelectPlatform(parent_platform)}
+            key={parent_platform.id}
           >
-            {platform.name}
+            {parent_platform.name}
           </MenuItem>
         ))}
       </MenuList>

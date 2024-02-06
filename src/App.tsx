@@ -6,12 +6,12 @@ import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
-import SortSelector from "./components/SortSelector";
+import SortSelector, { SortOrder } from "./components/SortSelector";
 
 export interface GameQueryConfig {
   genre: Genre | null;
-  platform: Platform | null;
-  ordering: string | null;
+  parent_platform: Platform | null;
+  sortOrder: SortOrder | null;
 }
 
 function App() {
@@ -44,16 +44,17 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <HStack spacing="30px">
+        <HStack spacing="30px" marginBottom="15px">
           <PlatformSelector
-            selectedPlatform={gameQueryConfig.platform}
-            onSelectPlatform={(platform) =>
-              setGameQueryConfig({ ...gameQueryConfig, platform })
+            selectedPlatform={gameQueryConfig.parent_platform}
+            onSelectPlatform={(parent_platform) =>
+              setGameQueryConfig({ ...gameQueryConfig, parent_platform })
             }
           />
           <SortSelector
-            onSelectOrdering={(ordering) =>
-              setGameQueryConfig({ ...gameQueryConfig, ordering })
+            selectedSortOrder={gameQueryConfig.sortOrder}
+            onSelectOrder={(sortOrder) =>
+              setGameQueryConfig({ ...gameQueryConfig, sortOrder })
             }
           />
         </HStack>

@@ -1,29 +1,49 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { BiDownArrow } from "react-icons/bi";
 
-interface Props {
-  onSelectOrdering: (ordering: string) => void, 
+export interface SortOrder {
+  label: string, 
+  value: string | null,
 }
 
-const SortSelector = ({ onSelectOrdering }: Props) => {
-  const orderings = [
-    "name",
-    "released",
-    "added",
-    "-created",
-    "updated",
-    "rating",
-    "-metacritic",
+interface Props {
+  selectedSortOrder: SortOrder | null, 
+  onSelectOrder: (sortOrder: SortOrder) => void, 
+}
+
+const SortSelector = ({ selectedSortOrder, onSelectOrder }: Props) => {
+  const SortOrders = [
+    //{ label: '', value: ''}
+    {label: "Sort by ...", value: null}, 
+    {label: "Relevance", value: ""}, 
+    {label: "Name", value: "name"}, 
+    {label: "Release date", value: "-released"}, 
+    {label: "Date created", value: "-created"}, 
+    {label: "Date added", value: "-added"}, 
+    {label: "Date updated", value: "-updated"}, 
+    {label: "Average rating", value: "-rating"}, 
+    {label: "Popularity", value: "-metacritic"}, 
+
+    // ["label", "value"]
+    /*
+      ["Name", "name"],
+      ["Released", "released"],
+      ["Added", "added"],
+      ["Created", "-created"],
+      ["Updated", "updated"],
+      ["Rating", "rating"],
+      ["Metacritic", "-metacritic"],
+    */
   ];
 
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BiDownArrow />}>
-        Sort by ...
+        {selectedSortOrder ? selectedSortOrder.label : "Sort by ..."}
       </MenuButton>
       <MenuList>
-        {orderings.map((ordering) => (
-          <MenuItem onClick={() => onSelectOrdering(ordering)} key={ordering}>{ordering}</MenuItem>
+        {SortOrders.map((SortOrder) => (
+          <MenuItem onClick={() => onSelectOrder(SortOrder)} key={SortOrder.value}>{SortOrder.label}</MenuItem>
         ))}
       </MenuList>
     </Menu>
