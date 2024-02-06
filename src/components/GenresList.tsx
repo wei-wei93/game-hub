@@ -1,6 +1,6 @@
 import { HStack, Image, Link, List } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
-import { imageOptimizer } from "../services/imageOptimizer";
+import { imageCropper } from "../services/image-cropper";
 
 interface Props {
   selectedGenre: Genre | null, 
@@ -20,7 +20,7 @@ const GenresList = ({ selectedGenre, onSelectGenre }: Props) => {
             key={genre.image_background}
             borderRadius={8}
             objectFit="cover"
-            src={imageOptimizer(genre.image_background)}
+            src={imageCropper(genre.image_background)}
             boxSize="32px"
           />
           <Link as={genre.id === selectedGenre?.id ? 'b' : 'a'} onClick={() => onSelectGenre(genre)} fontSize='lg' key={genre.id}>{genre.name}</Link>

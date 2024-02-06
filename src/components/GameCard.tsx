@@ -2,7 +2,7 @@ import { Game } from "../hooks/useGames";
 import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
 import PlatformIconList from "./PlatformIconList"; //importing an object will import its dependence libraries too
 import CriticScoreTag from "./CriticScoreTag";
-import { imageOptimizer } from "../services/imageOptimizer";
+import { imageCropper } from "../services/image-cropper";
 
 interface Props {
   game: Game;
@@ -11,7 +11,7 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <Card>
-      <Image src={imageOptimizer(game.background_image)} />
+      <Image src={imageCropper(game.background_image)} />
       <CardBody>
         <Heading fontSize="2xl">{game.name}</Heading>
         <HStack justifyContent='space-between'>
