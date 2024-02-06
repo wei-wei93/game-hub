@@ -7,10 +7,10 @@ import {
   FaAndroid,
 } from "react-icons/fa6";
 import { MdPhoneIphone } from "react-icons/md";
-import { SiNintendo, SiCommodore, SiSega } from "react-icons/si";
+import { SiNintendo, SiCommodore, SiSega, SiAtari, SiD3Dotjs } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
-import { HStack, Icon } from "@chakra-ui/react";
+import { HStack, Icon, Image } from "@chakra-ui/react";
 import { Platform } from "../hooks/useGames";
 
 interface Props {
@@ -18,6 +18,11 @@ interface Props {
 }
 
 const PlatformIconList = ({ platforms }: Props) => {
+  
+  const NeoGeoIcon = () => (
+    <Image boxSize="18px" src="src\assets\Neo_Geo_logo.png" ></Image>
+  )
+
   //key-value pairs, key: string; value: IconType 
   const iconMap: { [key: string]: IconType } = {
     "pc": FaWindows,
@@ -31,6 +36,10 @@ const PlatformIconList = ({ platforms }: Props) => {
     "web": BsGlobe,
     "commodore-amiga": SiCommodore, 
     "sega": SiSega, 
+    "atari": SiAtari, 
+    "3do": SiD3Dotjs, 
+    "neo-geo": NeoGeoIcon, 
+    
   };
 
   return (
@@ -42,6 +51,7 @@ const PlatformIconList = ({ platforms }: Props) => {
           color="gray.400"
         ></Icon>
       ))}
+
     </HStack>
   );
 };

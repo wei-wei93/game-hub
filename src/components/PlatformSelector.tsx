@@ -31,7 +31,7 @@ const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
             onClick={() => onSelectPlatform(parent_platform)}
             key={parent_platform.id}
           >
-            {parent_platform.name}
+            {parent_platform.slug}
           </MenuItem>
         ))}
       </MenuList>
