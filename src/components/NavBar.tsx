@@ -1,14 +1,26 @@
-import { HStack, Image, Text } from "@chakra-ui/react"
-import ColorModeSwitch from "./ColorModeSwitch"
+import {
+  HStack,
+  Image,
+} from "@chakra-ui/react";
+import ColorModeSwitch from "./ColorModeSwitch";
+import SearchInput from "./SearchInput";
 
-
-const NavBar = () => {
-  return (
-    <HStack justifyContent="space-between" paddingTop='15px' paddingBottom='10px' paddingInline='25px'>
-        <Image src="src\assets\GGO_icon.png" boxSize='60px' borderRadius='full' ></Image>
-        <ColorModeSwitch />
-    </HStack>
-  )
+interface Props {
+  onSearch: (searchText: string) => void; 
 }
 
-export default NavBar
+const NavBar = ({ onSearch }: Props) => {
+  return (
+    <HStack paddingTop="15px" paddingBottom="10px" paddingInline="25px">
+      <Image
+        src="src\assets\GGO_icon.png"
+        boxSize="60px"
+        borderRadius="full"
+      ></Image>
+      <SearchInput onSearch={onSearch}/>
+      <ColorModeSwitch />
+    </HStack>
+  );
+};
+
+export default NavBar;
