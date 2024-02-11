@@ -15,6 +15,7 @@ const NavBar = ({ onSearch }: Props) => {
       <Image
         src="src\assets\GGO_icon.png"
         boxSize="60px"
+        objectFit='contain'
         borderRadius="full"
       ></Image>
       <SearchInput onSearch={onSearch}/>
