@@ -13,7 +13,7 @@ const NavBar = ({ onSearch }: Props) => {
   return (
     <HStack paddingTop="15px" paddingBottom="10px" paddingInline="25px">
       <Image
-        src="src\assets\GGO_icon.png"
+        src="src\assets\GGO_icon.webp"
         boxSize="60px"
         objectFit='contain'
         borderRadius="full"
