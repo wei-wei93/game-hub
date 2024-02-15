@@ -12,6 +12,8 @@ import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
 import { HStack, Icon, Image } from "@chakra-ui/react";
 import { Platform } from "../hooks/useGames";
+import neogeoLogo from '../assets/Neo_Geo_logo.webp';
+
 
 interface Props {
   platforms: Platform[];
@@ -20,7 +22,7 @@ interface Props {
 const PlatformIconList = ({ platforms }: Props) => {
   
   const NeoGeoIcon = () => (
-    <Image boxSize="18px" src="src\assets\Neo_Geo_logo.png" ></Image>
+    <Image boxSize="18px" src={neogeoLogo} ></Image>
   )
 
   //key-value pairs, key: string; value: IconType 

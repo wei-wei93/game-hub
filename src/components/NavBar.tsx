@@ -4,6 +4,7 @@ import {
 } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
+import GGOlogo from "../assets/GGO_icon.webp";
 
 interface Props {
   onSearch: (searchText: string) => void; 
@@ -13,7 +14,7 @@ const NavBar = ({ onSearch }: Props) => {
   return (
     <HStack paddingTop="15px" paddingBottom="10px" paddingInline="25px">
       <Image
-        src="src\assets\GGO_icon.webp"
+        src={GGOlogo}
         boxSize="60px"
         objectFit='contain'
         borderRadius="full"
