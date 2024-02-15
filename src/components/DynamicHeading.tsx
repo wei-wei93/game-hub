@@ -8,7 +8,7 @@ interface Props {
 const DynamicHeading = ({ gameQueryConfig }: Props) => {
   const HeadingText = [(gameQueryConfig.parent_platform  && gameQueryConfig.parent_platform.name !== "Platform" ? gameQueryConfig.parent_platform.name : null), 
                       (gameQueryConfig.genre ? gameQueryConfig.genre.name : null), 
-                      "Games11"]. join(' ')
+                      "Games"]. join(' ')
   
   return (
     <Box marginTop='15px' marginBottom='20px' marginLeft='10px'>
