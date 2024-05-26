@@ -1,2 +1,2 @@
 ## Live Site
-This site is now live at https://game-hub-self-five.vercel.app/ 
+The site is live at https://game-hub-self-five.vercel.app/ 
