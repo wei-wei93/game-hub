@@ -1,4 +1,4 @@
-# GameHub Website
+# GameHub - A Game Discovery Website
 
 ### Author: Wei Wei
 
