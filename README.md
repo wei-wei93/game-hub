@@ -1,4 +1,4 @@
-# Snake Game
+# GameHub Website
 
 ### Author: Wei Wei
 
